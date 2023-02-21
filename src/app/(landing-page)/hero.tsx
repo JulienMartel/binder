@@ -13,7 +13,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
-        delay: 0.2,
+        delay: 0.1,
       }}
       className="mx-auto grid min-h-screen max-w-screen-2xl grid-rows-2 place-items-center px-4 lg:grid-cols-2 lg:grid-rows-1 lg:px-12"
     >

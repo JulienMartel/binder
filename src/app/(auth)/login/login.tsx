@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 
@@ -47,7 +48,7 @@ export function Login() {
   };
 
   return (
-    <section className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800">
+    <motion.section className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800">
       <figure className="mx-auto mb-6 h-14 w-14">
         <Link href="/">
           <Logo />
@@ -111,6 +112,6 @@ export function Login() {
           Login
         </Button>
       </form>
-    </section>
+    </motion.section>
   );
 }

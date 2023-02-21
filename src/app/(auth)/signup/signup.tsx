@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 
@@ -53,7 +54,11 @@ export function Signup() {
   };
 
   return (
-    <section className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800"
+    >
       <figure className="mx-auto mb-6 h-14 w-14">
         <Link href="/">
           <Logo />
@@ -123,24 +128,24 @@ export function Signup() {
           </form>
         </>
       )}
-    </section>
+    </motion.section>
   );
 }
 
 function CheckEmail() {
   return (
-    <>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <h3 className="text-center text-3xl font-semibold tracking-tight">
         Check your email.
       </h3>
 
       <p className="text-center leading-7 [&:not(:first-child)]:mt-6">
-        Click the link in the email sent to you to verify your email.
+        Click the link in the email sent to you to verify your email & log in.
       </p>
 
       <p className="mt-2 text-center text-sm text-neutral-500 dark:text-neutral-400">
         You can close this page.
       </p>
-    </>
+    </motion.div>
   );
 }
