@@ -31,7 +31,6 @@ export function Login() {
     formState: { errors, isSubmitting },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
-    defaultValues: { password: "password123" },
   });
 
   const onSubmit: SubmitHandler<FormSchemaType> = async (formData) => {
