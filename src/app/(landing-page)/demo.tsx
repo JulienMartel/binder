@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import useStep3Coords from "./hooks/step3-coords";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Demo() {
   const [ref] = useStep3Coords();
@@ -17,6 +17,10 @@ export default function Demo() {
   const [isLoading, setIsLoading] = useState(false);
 
   const [recommendations, setRecommendations] = useState<string[]>(null!);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -51,7 +55,7 @@ export default function Demo() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            // viewport={{ margin: "0px 0px -100px 0px" }}
+            viewport={{ margin: "0px 0px -100px 0px" }}
             className="flex w-full flex-col justify-center rounded-lg bg-white px-9 py-8 shadow-md dark:bg-neutral-900"
           >
             <h3 className="text-2xl font-bold tracking-tight">
