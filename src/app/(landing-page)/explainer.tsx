@@ -69,7 +69,7 @@ function Features() {
   return (
     <motion.div
       id="learn-more"
-      className="scroll-m-48"
+      className="scroll-m-12 lg:scroll-m-48"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ margin: "0px 0px -100px 0px" }}
