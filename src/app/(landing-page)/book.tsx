@@ -79,16 +79,16 @@ export default function Book() {
       ref={ref}
     >
       <Canvas className="h-full w-full">
-        <Suspense fallback={null}>
-          <PerspectiveCamera makeDefault position={[0, 0, 0.8]} />
-          <ambientLight intensity={0.5} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-          <group position={[0, 0, 0]}>
-            <motion3d.group scale={scale} rotation={[rotateY, rotateX, 0]}>
-              <Model />
-            </motion3d.group>
-          </group>
-        </Suspense>
+        {/* <Suspense fallback={null}> */}
+        <PerspectiveCamera makeDefault position={[0, 0, 0.8]} />
+        <ambientLight intensity={0.5} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <group position={[0, 0, 0]}>
+          <motion3d.group scale={scale} rotation={[rotateY, rotateX, 0]}>
+            <Model />
+          </motion3d.group>
+        </group>
+        {/* </Suspense> */}
       </Canvas>
     </motion.div>
   );
