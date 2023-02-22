@@ -72,7 +72,7 @@ function Features() {
       // className="scroll-m-12 lg:scroll-m-48"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ margin: "0px 0px -100px 0px" }}
+      // viewport={{ margin: "0px 0px -100px 0px" }}
     >
       {/* mobile */}
       <div className="grid h-full w-full grid-rows-2 place-items-center lg:hidden">
