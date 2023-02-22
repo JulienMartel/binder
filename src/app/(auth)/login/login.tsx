@@ -48,7 +48,11 @@ export function Login() {
   };
 
   return (
-    <motion.section className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="space w-full max-w-xl rounded-xl py-8 px-4 shadow dark:bg-neutral-800"
+    >
       <figure className="mx-auto mb-6 h-14 w-14">
         <Link href="/">
           <Logo />
