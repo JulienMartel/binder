@@ -38,10 +38,7 @@ export const metadata = {
     title: "Binder",
     description: "Find your next favorite book",
     creator: "@ju3ag",
-    images: {
-      url: "https://binder.jubag.dev/og-twitter.png",
-      alt: "Binder Logo",
-    },
+    images: ["https://binder.jubag.dev/og-lg.png"],
   },
   appLinks: {
     web: {
