@@ -18,7 +18,7 @@ export default function Explainer() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ margin: "0px 0px -100px 0px" }}
+          // viewport={{ margin: "0px 0px -100px 0px" }}
           className="grid h-1/2 w-1/2 rotate-90 place-items-center text-neutral-300 dark:text-neutral-700 lg:h-5/6 lg:w-5/6 lg:rotate-0"
         >
           <LeftLine />
@@ -27,7 +27,7 @@ export default function Explainer() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ margin: "0px 0px -100px 0px" }}
+          // viewport={{ margin: "0px 0px -100px 0px" }}
           className="grid h-full w-full place-items-center"
           ref={ref}
         >
@@ -39,7 +39,7 @@ export default function Explainer() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ margin: "0px 0px -100px 0px" }}
+          // viewport={{ margin: "0px 0px -100px 0px" }}
           className="relative grid h-1/2 w-1/2 place-items-center text-neutral-300 dark:text-neutral-700 lg:h-5/6 lg:w-5/6"
         >
           <div className="w-full rotate-90 lg:rotate-0">
@@ -55,7 +55,7 @@ export default function Explainer() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ margin: "0px 0px -100px 0px" }}
+          // viewport={{ margin: "0px 0px -100px 0px" }}
           className="grid h-full w-5/6 place-items-center"
         >
           <RecommendationList />
