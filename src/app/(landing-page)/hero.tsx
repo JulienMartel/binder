@@ -6,8 +6,13 @@ import { Button } from "@/components/ui/button";
 import Book from "./book";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { useEffect } from "react";
 
 export default function Hero() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}

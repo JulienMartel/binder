@@ -68,7 +68,7 @@ export default function Explainer() {
 function Features() {
   return (
     <motion.div
-      // id="learn-more"
+      id="learn-more"
       className="scroll-m-12 lg:scroll-m-48"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
