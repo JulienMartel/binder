@@ -11,7 +11,7 @@ export default function FooterCTA() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-sm text-neutral-500 dark:text-neutral-400">
-            Build your dream library with ease! Just a few clicks and you're
+            Build your dream library with ease! Just a few clicks and you&apos;re
             ready to go.
           </p>
 

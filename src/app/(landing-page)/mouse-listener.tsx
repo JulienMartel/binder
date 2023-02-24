@@ -17,7 +17,7 @@ export default function MouseListener() {
     return () => {
       window.removeEventListener("mousemove", handleWindowMouseMove);
     };
-  }, []);
+  }, [setMouseCoords]);
 
   return <></>;
 }

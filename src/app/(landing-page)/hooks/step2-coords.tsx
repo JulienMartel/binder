@@ -21,7 +21,7 @@ export default function useStep2Coords() {
       y: bounds.y + bounds.height / 2,
       height: bounds.height,
     });
-  }, [bounds.x, bounds.y]);
+  }, [bounds.x, bounds.y, bounds.width, bounds.height, set]);
 
   return [ref] as const;
 }
