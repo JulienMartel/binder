@@ -1,4 +1,4 @@
-import { Bakbak_One } from "@next/font/google";
+import { Bakbak_One } from "next/font/google";
 
 const bakbakOne = Bakbak_One({
   weight: "400",

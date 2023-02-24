@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { type NextRequest, NextResponse } from "next/server";
 import { openai } from "@/adapters/openai";
 
 const mixDemoPrompt = (book: string) => `
@@ -20,17 +20,11 @@ The format of the list should look like: (
 Recommendations:
 `; // last line break is important
 
-type Data = {
-  recommendations?: string[];
-};
-
-export default async function generateAction(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  const book = req.body;
+export async function POST(request: NextRequest) {
+  const book: string = await request.text();
 
   // TODO: add zod validation
+  console.log(book);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
@@ -45,7 +39,7 @@ export default async function generateAction(
     ?.split("\n")
     .filter((line: string) => line.trim());
 
-  res.status(200).json({ recommendations });
-}
+  console.log(recommendations);
 
-// export const runtime = "edge";
+  return NextResponse.json(recommendations);
+}

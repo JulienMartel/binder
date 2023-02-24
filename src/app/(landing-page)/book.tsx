@@ -28,11 +28,12 @@ export default function Book() {
   const [step2Coords] = useAtom(step2CoordsAtom);
   const [step3Coords] = useAtom(step3CoordsAtom);
 
+  const screenHeight = Number(window?.screen.height);
   const stepPoints = [
-    window.screen.height * 0.1,
-    window.screen.height * 0.3,
-    window.screen.height * 0.8,
-    window.screen.height * 1,
+    screenHeight * 0.1,
+    screenHeight * 0.3,
+    screenHeight * 0.8,
+    screenHeight * 1,
   ];
 
   const x = useSpring(

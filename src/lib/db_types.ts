@@ -9,24 +9,82 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      posts: {
+      book: {
         Row: {
-          id: string;
-          created_at: string;
-          content: string;
-          user_id: string;
+          author: string;
+          created_at: string | null;
+          id: number;
+          title: string;
+          updated_at: string | null;
         };
         Insert: {
-          id?: string;
-          created_at?: string;
-          content: string;
-          user_id?: string;
+          author?: string;
+          created_at?: string | null;
+          id?: number;
+          title?: string;
+          updated_at?: string | null;
         };
         Update: {
+          author?: string;
+          created_at?: string | null;
+          id?: number;
+          title?: string;
+          updated_at?: string | null;
+        };
+      };
+      bookmark: {
+        Row: {
+          book_id: number;
+          created_at: string | null;
+          id: number;
+          owner_uuid: string;
+          rating: number | null;
+          updated_at: string | null;
+          user_has_read: boolean | null;
+        };
+        Insert: {
+          book_id: number;
+          created_at?: string | null;
+          id?: number;
+          owner_uuid: string;
+          rating?: number | null;
+          updated_at?: string | null;
+          user_has_read?: boolean | null;
+        };
+        Update: {
+          book_id?: number;
+          created_at?: string | null;
+          id?: number;
+          owner_uuid?: string;
+          rating?: number | null;
+          updated_at?: string | null;
+          user_has_read?: boolean | null;
+        };
+      };
+      profiles: {
+        Row: {
+          avatar_url: string | null;
+          full_name: string | null;
+          id: string;
+          updated_at: string | null;
+          username: string | null;
+          website: string | null;
+        };
+        Insert: {
+          avatar_url?: string | null;
+          full_name?: string | null;
+          id: string;
+          updated_at?: string | null;
+          username?: string | null;
+          website?: string | null;
+        };
+        Update: {
+          avatar_url?: string | null;
+          full_name?: string | null;
           id?: string;
-          created_at?: string;
-          content?: string;
-          user_id?: string;
+          updated_at?: string | null;
+          username?: string | null;
+          website?: string | null;
         };
       };
     };
@@ -37,6 +95,9 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
+      [_ in never]: never;
+    };
+    CompositeTypes: {
       [_ in never]: never;
     };
   };

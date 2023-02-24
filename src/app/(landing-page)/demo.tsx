@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
@@ -38,9 +38,7 @@ export default function Demo() {
       return undefined;
     }
 
-    const { recommendations } = (await res.json()) as {
-      recommendations: string[];
-    };
+    const recommendations = (await res.json()) as string[];
 
     setRecommendations(recommendations);
     return undefined;
