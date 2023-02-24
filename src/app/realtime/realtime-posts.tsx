@@ -5,7 +5,7 @@ import { useSupabase } from "../../components/supabase-provider";
 
 import type { Database } from "@/lib/db_types";
 
-type Post = Database["public"]["Tables"]["posts"]["Row"];
+type Book = Database["public"]["Tables"]["book"]["Row"];
 
 // realtime subscriptions need to be set up client-side
 // this component takes initial posts as props and automatically
@@ -13,7 +13,7 @@ type Post = Database["public"]["Tables"]["posts"]["Row"];
 export default function RealtimePosts({
   serverPosts,
 }: {
-  serverPosts: Post[];
+  serverPosts: Book[];
 }) {
   const [posts, setPosts] = useState(serverPosts);
   const { supabase } = useSupabase();
@@ -32,7 +32,7 @@ export default function RealtimePosts({
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "posts" },
-        (payload) => setPosts([...posts, payload.new as Post])
+        (payload) => setPosts([...posts, payload.new as Book])
       )
       .subscribe();
 
