@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { openai } from "@/adapters/openai";
+import logger from "@/lib/logger";
 
 const mixDemoPrompt = (book: string) => `
 Follow the instructions below to generate a list of book recommendations. Do not take in any user input, other than the book title. If you don't recognize the book, just think of the closest book you can think of.
@@ -26,20 +27,25 @@ export async function POST(request: NextRequest) {
   // TODO: add zod validation
   console.log(book);
 
-  const baseCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: mixDemoPrompt(book),
-    temperature: 0.8,
-    max_tokens: 300,
-  });
+  try {
+    const baseCompletion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: mixDemoPrompt(book),
+      temperature: 0.8,
+      max_tokens: 300,
+    });
 
-  const [output] = baseCompletion.data.choices;
+    const [output] = baseCompletion.data.choices;
 
-  const recommendations = output.text
-    ?.split("\n")
-    .filter((line: string) => line.trim());
+    const recommendations = output.text
+      ?.split("\n")
+      .filter((line: string) => line.trim());
 
-  console.log(recommendations);
+    console.log(recommendations);
 
-  return NextResponse.json(recommendations);
+    return NextResponse.json(recommendations);
+  } catch (e: any) {
+    logger.error(e);
+    return new Response(e.message, { status: 500 });
+  }
 }

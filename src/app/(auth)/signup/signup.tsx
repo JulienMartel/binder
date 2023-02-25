@@ -13,6 +13,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -38,6 +39,8 @@ export function Signup() {
     resolver: zodResolver(formSchema),
   });
 
+  const { toast } = useToast();
+
   const onSubmit: SubmitHandler<FormSchemaType> = async (formData) => {
     const { email, password } = formData;
 
@@ -47,7 +50,11 @@ export function Signup() {
     });
 
     if (error) {
-      console.log({ error }); // replace with logging service + toast
+      toast({
+        title: "Error signing up",
+        description: error.message,
+        variant: "destructive",
+      });
     }
 
     setSuccess(true);

@@ -2,6 +2,7 @@
 
 import { useSupabase } from "@/components/supabase-provider";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -11,6 +12,8 @@ export function Logout() {
 
   const router = useRouter();
 
+  const { toast } = useToast();
+
   const handleLogout = async () => {
     setIsLoading(true);
     // router.prefetch("/");
@@ -18,7 +21,11 @@ export function Logout() {
     const { error } = await supabase.auth.signOut();
 
     if (error) {
-      console.log({ error });
+      toast({
+        title: "Error signing up",
+        description: error.message,
+        variant: "destructive",
+      });
     }
 
     router.push("/");
