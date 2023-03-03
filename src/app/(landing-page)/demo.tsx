@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import useStep3Coords from "./hooks/step3-coords";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Demo() {
   const [ref] = useStep3Coords();
@@ -22,26 +23,38 @@ export default function Demo() {
     window.scrollTo(0, 0);
   }, []);
 
+  const { toast } = useToast();
+  const showError = useCallback(() => {
+    setIsLoading(false);
+    toast({
+      title: "Error",
+      description: "Something happened on our end. Please try again later.",
+      variant: "destructive",
+    });
+  }, [toast]);
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!book) return undefined;
 
     setIsLoading(true);
 
-    const res = await fetch("/api/demo", {
-      method: "POST",
-      body: book,
-    });
+    try {
+      const res = await fetch("/api/demo", {
+        method: "POST",
+        body: book,
+      });
 
-    if (!res.ok) {
-      setIsLoading(false);
-      return undefined;
+      if (!res.ok) {
+        throw new Error();
+      }
+
+      const recommendations = (await res.json()) as string[];
+
+      setRecommendations(recommendations);
+    } catch (err) {
+      showError();
     }
-
-    const recommendations = (await res.json()) as string[];
-
-    setRecommendations(recommendations);
-    return undefined;
   }
 
   return (
