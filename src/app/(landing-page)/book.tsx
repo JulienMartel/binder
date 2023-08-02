@@ -17,7 +17,7 @@ import { useAtom } from "jotai";
 import { mouseCoordsAtom } from "./mouse-listener";
 import { step2CoordsAtom } from "./hooks/step2-coords";
 import { step3CoordsAtom } from "./hooks/step3-coords";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function Book() {
   const [ref, canvasBounds] = useMeasure({ offsetSize: true });
@@ -28,13 +28,19 @@ export default function Book() {
   const [step2Coords] = useAtom(step2CoordsAtom);
   const [step3Coords] = useAtom(step3CoordsAtom);
 
-  const screenHeight = Number(window?.screen.height);
+  const [screenHeight, setScreenHeight] = useState(0);
+  useEffect(() => {
+    setScreenHeight(window?.screen.height);
+  }, [setScreenHeight]);
+
   const stepPoints = [
     screenHeight * 0.1,
     screenHeight * 0.3,
     screenHeight * 0.8,
     screenHeight * 1,
   ];
+
+  useEffect;
 
   const x = useSpring(
     useTransform(scrollY, stepPoints, [

@@ -39,7 +39,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Binder",
     description: "Find your next favorite book",
-    creator: "@ju3ag",
+    creator: "@JU3AG",
+    creatorId: "1035428482115940353",
     images: ["https://binder.jubag.dev/og-twitter.png"],
   },
   appLinks: {

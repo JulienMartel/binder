@@ -17,7 +17,7 @@ export default function Demo() {
   const [book, setBook] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const [recommendations, setRecommendations] = useState<string[]>(null!);
+  const [recommendations, setRecommendations] = useState<string[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +62,7 @@ export default function Demo() {
       <div className="hidden lg:block" ref={ref}></div>
 
       <div className="grid w-full place-items-center">
-        {recommendations ? (
+        {recommendations.length ? (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
